@@ -1,0 +1,24 @@
+{
+ "person": [
+             {
+               "id": 1,
+               "name": "abc",
+               "location": "Hassan"
+             },
+             {
+                "id": 2,
+                "name": "xyz",
+                "location": "Banglore"
+              },
+              {
+                "id": 3,
+                "name": "pqr",
+                "location": "Mumbai"
+              },  
+              {
+                "id": 4,
+                "name": "uio",
+                "location": "Nepal"
+              }                                   
+           ]   
+}

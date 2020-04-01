@@ -1,0 +1,55 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar> <img src="/assets/bt.png" alt="logo" style="width: 18%;" />   Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/"><span class="material-icons"> arrow_right </span>  Page 1</a> 
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/page2"><span class="material-icons"> arrow_right </span>  Page 2</a> 
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/page3"><span class="material-icons"> arrow_right </span> Page 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">  menu</mat-icon>
+      </button>
+      <span> @next-Gen</span>
+      <span class="spacer"></span>
+   
+      <a href="">Link 1</a>
+      <button mat-button [matMenuTriggerFor]="menu2"><span class="material-icons" matBadge="5" matBadgePosition="above after" matBadgeColor="accent">  sms  </span></button>
+      <mat-menu #menu2="matMenu" xPosition="before">
+        <mat-list>
+          <mat-list-item><i class="material-icons">face</i></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item> <i class="material-icons">  mail_outline  </i> </mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item> <i class="material-icons">  arrow_back  </i> </mat-list-item>
+         </mat-list>
+      </mat-menu>   
+      <button mat-button [matMenuTriggerFor]="menu1"><span class="material-icons"> account_circle  </span></button>
+      <mat-menu #menu1="matMenu" xPosition="before">
+        <mat-list>
+          <mat-list-item><i class="material-icons">face</i> <a href="#"> User</a></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item> <i class="material-icons">  mail_outline  </i> <a href="#"> user@bt.com  </a></mat-list-item>
+          <mat-divider></mat-divider>
+          <mat-list-item> <i class="material-icons">  arrow_back  </i> <a href="#"> Logout </a> </mat-list-item>
+         </mat-list>
+      </mat-menu>          
+    </mat-toolbar>
+    <!--   Content   -->
+     <ng-content></ng-content>
+    <!--  Content   -->
+  </mat-sidenav-content>
+</mat-sidenav-container>
+ 

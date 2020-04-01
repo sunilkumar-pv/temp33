@@ -1,0 +1,24 @@
+<p>page1 works!</p>
+
+<form [formGroup]="orderForm" (ngSubmit)="getOrders()"> 
+    <div *ngIf="orderForm.errors">Please select !</div>
+  <mat-form-field appearance="outline">
+    <mat-label>Service Types</mat-label>
+    <mat-select name="serviceTypes" placeholder="Service Types" formControlName="serviceTypes">
+      <mat-option value="">Select</mat-option>
+      <mat-option *ngFor="let service of serviceTypes" [value]="service">{{  service.type }}</mat-option>
+    </mat-select>
+  </mat-form-field> 
+-
+  <mat-form-field appearance="outline">
+    <mat-label>Business Functions</mat-label>
+    <mat-select name="businessFunctions" placeholder="Business Functions" formControlName="businessFunctions">
+      <mat-option value="">Select</mat-option>
+      <mat-option *ngFor="let bf of businessFunctions" [value]="bf">{{  bf.function }}</mat-option>
+    </mat-select>
+  </mat-form-field> 
+-
+  <button type="submit" mat-raised-button color="primary" mat-button 
+     [disabled]="!orderForm.valid">Submitt</button>
+  
+</form>
